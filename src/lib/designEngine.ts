@@ -25,16 +25,16 @@ interface DesignStyle {
 const DESIGN_STYLES: Record<string, DesignStyle> = {
   'coptic orthodox': {
     name: 'Coptic Orthodox',
-    palette: ['#8B0000', '#C5A028', '#F5F0E8', '#2C1810', '#D4AF37'],
+    palette: ['#6A1B1B', '#E8B94A', '#FFF7E8', '#3E8E5A', '#2F1C16'],
     primaryFont: 'EB Garamond, Georgia, serif',
     accentFont: 'Cinzel, Times New Roman, serif',
-    backgroundBase: 'Warm parchment (#F5F0E8) with maroon (#8B0000) header band',
-    accentColor: 'Gold (#D4AF37) and deep maroon (#8B0000)',
-    borderStyle: 'Decorative icon-inspired border with Coptic cross motifs at corners',
+    backgroundBase: 'Warm parchment (#FFF7E8) with maroon (#6A1B1B) header band',
+    accentColor: 'Gold (#E8B94A) and joyful green (#3E8E5A)',
+    borderStyle: 'Rounded decorative border with Coptic cross and vine-inspired accents',
     layoutNotes:
-      'Centered titles with gold underline divider. Text in warm off-white panels. Footer with Coptic cross.',
+      'Centered titles with golden divider. Text in warm cream panels with maroon framing and green highlights.',
     visualMotif:
-      'Traditional Coptic iconography — golden borders, maroon drapery patterns, cross dividers',
+      'Celebratory Coptic iconography — warm gold accents, joyful green highlights, and welcoming ecclesial framing',
   },
   'youth ministry': {
     name: 'Youth Ministry',

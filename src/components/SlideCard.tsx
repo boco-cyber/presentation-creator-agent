@@ -1,4 +1,5 @@
 import type { Slide } from '@/types'
+import InfographicRenderer from './InfographicRenderer'
 
 interface SlideCardProps {
   slide: Slide
@@ -53,8 +54,10 @@ export default function SlideCard({
 
       {/* Slide Body */}
       <div className="px-5 py-4 space-y-4">
-        {/* Bullets */}
-        {slide.mainBullets.length > 0 ? (
+        {/* Infographic or Bullets */}
+        {slide.infographic ? (
+          <InfographicRenderer infographic={slide.infographic} />
+        ) : slide.mainBullets.length > 0 ? (
           <ul className="space-y-2">
             {slide.mainBullets.map((bullet, idx) => (
               <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -65,7 +68,7 @@ export default function SlideCard({
           </ul>
         ) : (
           !isTitleSlide && (
-            <p className="text-sm text-gray-400 italic">No bullets — layout only slide</p>
+            <p className="text-sm text-gray-400 italic">Layout only slide</p>
           )
         )}
 

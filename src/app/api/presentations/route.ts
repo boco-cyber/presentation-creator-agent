@@ -9,6 +9,7 @@ export const runtime = 'nodejs'
 
 import { NextRequest, NextResponse } from 'next/server'
 import { parseLesson } from '@/lib/lessonParser'
+import { processLessonWithAI } from '@/lib/aiLessonProcessor'
 import { applyDesign } from '@/lib/designEngine'
 import { savePresentation } from '@/lib/storage'
 import { generateSlidesJson } from '@/lib/exporters/jsonExporter'
@@ -46,8 +47,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       speakerNotesPreference: body.speakerNotesPreference || 'full',
     }
 
-    // Step 1: Parse lesson into slides
-    const parsedSlides = parseLesson(formData)
+    // Step 1: Parse lesson into slides (try AI first, fall back to rule-based)
+    let parsedSlides
+    try {
+      parsedSlides = await processLessonWithAI(formData)
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : ''
+      if (msg !== 'no-ai') {
+        console.warn('[AI] Failed, falling back to rule-based parser:', msg)
+      }
+      parsedSlides = parseLesson(formData)
+    }
 
     // Step 2: Apply design metadata
     const designedSlides = applyDesign(parsedSlides, formData.designPlot)

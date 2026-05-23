@@ -115,9 +115,9 @@ export default function DocsPage() {
             {
               id: 'coptic orthodox',
               label: 'Coptic Orthodox',
-              colors: ['#8B0000', '#D4AF37', '#F5F0E8'],
+              colors: ['#6A1B1B', '#E8B94A', '#FFF7E8', '#3E8E5A'],
               detail:
-                'Gold (#D4AF37) and maroon (#8B0000) on warm parchment. Coptic cross borders. EB Garamond / Cinzel serif fonts. Traditional icon-inspired decorative elements.',
+                'Warm maroon (#6A1B1B), gold (#E8B94A), and green (#3E8E5A) on parchment. Joyful Coptic framing with celebratory serif typography and cross-inspired accents.',
             },
             {
               id: 'youth ministry',

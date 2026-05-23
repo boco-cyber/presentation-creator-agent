@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { loadPresentation, readExportFile } from '@/lib/storage'
 import ExportPanel from '@/components/ExportPanel'
+import ExportButtons from '@/components/ExportButtons'
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -93,6 +94,12 @@ export default async function ExportPage({ params }: PageProps) {
         >
           View Slides
         </Link>
+      </div>
+
+      <div className="rounded-xl border border-gray-200 bg-white p-5 space-y-3">
+        <h2 className="text-sm font-semibold text-gray-900">Quick Export</h2>
+        <ExportButtons presentationId={id} title={presentation.title} />
+        <p className="text-xs text-gray-500">PPTX: full styled presentation with infographics. PDF: print-optimized slides.</p>
       </div>
 
       <ExportPanel presentationId={id} files={exportFiles} />

@@ -99,7 +99,7 @@ export default function HomePage() {
         </p>
         <div className="flex flex-wrap justify-center gap-2">
           {[
-            { label: 'Coptic Orthodox', colors: ['#8B0000', '#D4AF37', '#F5F0E8'] },
+            { label: 'Coptic Orthodox', colors: ['#6A1B1B', '#E8B94A', '#FFF7E8', '#3E8E5A'] },
             { label: 'Youth Ministry', colors: ['#FF6B35', '#4ECDC4', '#FFE66D'] },
             { label: 'Modern Academic', colors: ['#1A2744', '#2563EB', '#FFFFFF'] },
             { label: 'Clean Corporate', colors: ['#18181B', '#71717A', '#F4F4F5'] },

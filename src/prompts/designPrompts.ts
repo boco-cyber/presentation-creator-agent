@@ -18,10 +18,10 @@ export const DESIGN_PROMPT_TEMPLATES: DesignPromptTemplate[] = [
     id: 'coptic orthodox',
     label: 'Coptic Orthodox',
     description:
-      'Gold and maroon palette with icon-inspired borders and traditional Coptic dividers. Serif typography. Formal and reverent.',
-    colorSwatch: ['#8B0000', '#D4AF37', '#F5F0E8'],
+      'Warm maroon, gold, and green palette with joyful Coptic accents, soft parchment backgrounds, and celebratory serif typography.',
+    colorSwatch: ['#6A1B1B', '#E8B94A', '#FFF7E8', '#3E8E5A'],
     example:
-      'Gold title on parchment background, maroon header band, Coptic cross corner decorations',
+      'Gold title on parchment background, maroon header band, joyful green accents, and Coptic cross framing',
   },
   {
     id: 'youth ministry',

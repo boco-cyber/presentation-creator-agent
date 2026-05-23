@@ -12,6 +12,23 @@ export default function LessonForm() {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [importing, setImporting] = useState(false)
+
+  const handleFileImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setImporting(true)
+    const fd = new FormData()
+    fd.append('file', file)
+    const res = await fetch('/api/import', { method: 'POST', body: fd })
+    if (res.ok) {
+      const { text } = await res.json() as { text: string }
+      setFormData(prev => ({ ...prev, lessonText: text }))
+    }
+    setImporting(false)
+    // Reset the input so the same file can be re-imported if needed
+    e.target.value = ''
+  }
 
   const [formData, setFormData] = useState<LessonFormData>({
     title: '',
@@ -187,6 +204,16 @@ export default function LessonForm() {
             it will not add, change, or invent any content. Every bullet point and speaker note
             comes directly from what you write here.
           </p>
+        </div>
+
+        <div className="rounded-xl border-2 border-dashed border-gray-300 p-4 text-center hover:border-indigo-400 transition-colors">
+          <label className="cursor-pointer">
+            <input type="file" accept=".txt,.md,.docx,.pdf" onChange={handleFileImport} className="sr-only" />
+            <div className="text-sm text-gray-600">
+              {importing ? 'Importing...' : 'Import from file (.txt, .md, .docx, .pdf)'}
+              <span className="block text-xs text-gray-400 mt-0.5">or paste your lesson below</span>
+            </div>
+          </label>
         </div>
 
         <textarea

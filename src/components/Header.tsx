@@ -10,6 +10,7 @@ export default function Header() {
     { href: '/', label: 'Home' },
     { href: '/new', label: 'New Presentation' },
     { href: '/docs', label: 'Docs' },
+    { href: '/settings', label: 'AI Settings' },
   ]
 
   return (
